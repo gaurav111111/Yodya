@@ -16,5 +16,9 @@ public interface UserServiceInterface {
 	public UserModel deleteUser(UserModel user);
 	public UserModel findByEmail(String email);
 	List<SellerAdCountVwModel> getSimilarSellers();
+	
+	public void updateGoogleId(String gId, long id);
+	
+	
 
 }

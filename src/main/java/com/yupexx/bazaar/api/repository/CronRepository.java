@@ -16,5 +16,7 @@ public interface CronRepository extends JpaRepository<CronModel, Integer>{
 	List<CronModel> findByStatusAndIsProcessed(boolean b,Integer a);
 
 	List<CronModel> findByStatusAndCreatedByOrderByIdDesc(boolean b, Long userId);
+
+	List<CronModel> findByCreatedByOrderByIdDesc(Long userId);
 	
 }

@@ -21,13 +21,15 @@ public class CategoryTagsService implements CategoryTagsInterface {
 	@Override
 	public List<CategoryTagsModel> getAllCategoryTagss() {
 		// TODO Auto-generated method stub
-		return dao.findByStatus(true);
+		//return dao.findByStatus(true);
+		return dao.findAll();
 	}
 
 	@Override
 	public Optional<CategoryTagsModel> getCategoryTagsById(Integer blogId) {
 		// TODO Auto-generated method stub
-		return dao.findByIdAndStatus(blogId,true);
+	//	return dao.findByIdAndStatus(blogId,true);
+		return dao.findById(blogId);
 	}
 
 	@Override

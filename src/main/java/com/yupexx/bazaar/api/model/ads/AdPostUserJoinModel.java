@@ -46,10 +46,12 @@ public class AdPostUserJoinModel {
 	private Integer productCondition;
 	private Integer manufacturedYear;
 	private String productModelName;
-	@JsonIgnore
+
 	@Column(columnDefinition = "TINYINT")
 	@Type(type = "org.hibernate.type.NumericBooleanType")
 	private Boolean status = true;
+	
+	
 	@JsonIgnore
 	private Long createdBy=(long) -1;
 	@JsonIgnore
@@ -304,6 +306,18 @@ public class AdPostUserJoinModel {
 
 	public void setAnalytics(List<AnalyticsViewModel> analytics) {
 		this.analytics = analytics;
+	}
+
+	@Override
+	public String toString() {
+		return "AdPostUserJoinModel [id=" + id + ", catId=" + catId + ", adTitle=" + adTitle + ", adDescription="
+				+ adDescription + ", adPrice=" + adPrice + ", adCurrency=" + adCurrency + ", location=" + location
+				+ ", latitude=" + latitude + ", longitude=" + longitude + ", productCondition=" + productCondition
+				+ ", manufacturedYear=" + manufacturedYear + ", productModelName=" + productModelName + ", status="
+				+ status + ", createdBy=" + createdBy + ", updatedBy=" + updatedBy + ", createdDate=" + createdDate
+				+ ", updatedDate=" + updatedDate + ", user=" + user + ", category=" + category + ", productType="
+				+ productType + ", brand=" + brand + ", accessory=" + accessory + ", tag=" + tag + ", media=" + media
+				+ ", subscription=" + subscription + ", analytics=" + analytics + "]";
 	}
 	
 

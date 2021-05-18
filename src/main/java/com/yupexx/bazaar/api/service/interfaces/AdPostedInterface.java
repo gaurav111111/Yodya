@@ -15,6 +15,7 @@ import com.yupexx.bazaar.api.model.ads.AdPostUserJoinModel;
 import com.yupexx.bazaar.api.model.ads.AdPostUserModel;
 import com.yupexx.bazaar.api.model.ads.AdPostUserSubscriptionsModel;
 import com.yupexx.bazaar.api.model.ads.AdPostUserWishlistModel;
+import com.yupexx.bazaar.api.model.dto.AdPostUserResponseDto;
 
 public interface AdPostedInterface {
 	
@@ -44,7 +45,7 @@ public interface AdPostedInterface {
 
 	AdPostUserModel deleteAdPosted(Integer adId);
 
-	Optional<AdPostUserJoinModel> getAdPostedById(Integer adId);
+	AdPostUserResponseDto getAdPostedById(Integer adId);
 
 	List<AdPostUserWishlistModel> getWishlist(Long userMasterId);
 	
@@ -59,5 +60,7 @@ public interface AdPostedInterface {
 	List<AdPostUserJoinModel> getFeaturedAdPosted();
 
 	List<AdPostUserJoinModel> getAdPostedByFilter(List<Integer> catId);
+	
+    Optional<AdPostDealModel> findById(Integer id);
 
 }

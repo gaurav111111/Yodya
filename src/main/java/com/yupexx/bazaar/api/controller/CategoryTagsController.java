@@ -6,6 +6,7 @@ import java.util.Optional;
 import javax.validation.Valid;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -13,13 +14,19 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.yupexx.bazaar.api.model.CategoryTagsModel;
+import com.yupexx.bazaar.api.model.response.Message;
+import com.yupexx.bazaar.api.repository.CategoryTagsRepository;
 import com.yupexx.bazaar.api.service.CategoryTagsService;
 
 @RestController
+@CrossOrigin
 public class CategoryTagsController {
 	
 	@Autowired
 	CategoryTagsService service;
+	
+	@Autowired
+	CategoryTagsRepository dao;
 
 	@RequestMapping(value = "/bazaar/categorytags", method = RequestMethod.GET)
 	public List<CategoryTagsModel> getCategoryTagss() {
@@ -46,9 +53,34 @@ public class CategoryTagsController {
 	}
 	
 	@RequestMapping(value = "/bazaar/categorytag/{categorytagId}", method = RequestMethod.DELETE)
-	public CategoryTagsModel deleteCategoryTags(@Valid @PathVariable Integer categorytagId) {
+	public Message deleteCategoryTags(@Valid @PathVariable int categorytagId) {
 		System.out.println(this.getClass().getSimpleName() + " - Delete CategoryTags service is invoked.");
-		return service.deleteCategoryTags(categorytagId);
+		CategoryTagsModel object = dao.findById(categorytagId);
+		
+		Message msg=new Message();
+		if(object!=null) {
+			if(object.getStatus()) {
+				object.setStatus(false);
+				dao.save(object);
+				msg.setCode(200);
+				msg.setMessage("Accessory Inactive Successfully");
+				return msg;
+			}else {
+				object.setStatus(true);
+				dao.save(object);
+				msg.setCode(200);
+				msg.setMessage("Accessory Active Successfully");
+				return msg;
+			}
+		}else {
+			msg.setCode(400);
+			msg.setMessage("Accessory not Found");
+			return msg;
+		}
+		
+		
+		
+		
 	}
 	
 }

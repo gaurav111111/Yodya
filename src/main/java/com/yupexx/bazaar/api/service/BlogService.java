@@ -21,13 +21,15 @@ public class BlogService implements BlogInterface {
 	@Override
 	public List<BlogModel> getAllBlogs() {
 		// TODO Auto-generated method stub
-		return dao.findByStatus(true);
+	//	return dao.findByStatus(true);
+		return dao.findAll();
 	}
 
 	@Override
 	public Optional<BlogModel> getBlogById(Integer blogId) {
 		// TODO Auto-generated method stub
-		return dao.findByIdAndStatus(blogId,true);
+		//return dao.findByIdAndStatus(blogId,true);
+		return dao.findById(blogId);
 	}
 
 	@Override

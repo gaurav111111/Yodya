@@ -26,4 +26,6 @@ public interface ChatRepository extends JpaRepository<ChatModel, Integer>{
 	Optional<ChatModel> findByIdAndStatus(Integer id, boolean b);
 	
 	List<ChatModel> findByChatIdAndStatus(Long chatId, boolean b);
+
+	List<ChatModel> findByChatId(Long chatId);
 }

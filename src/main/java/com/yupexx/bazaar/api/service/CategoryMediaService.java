@@ -21,13 +21,15 @@ public class CategoryMediaService implements CategoryMediaInterface {
 	@Override
 	public List<CategoryMediaModel> getAllCategoryMedias() {
 		// TODO Auto-generated method stub
-		return dao.findByStatus(true);
+	//	return dao.findByStatus(true);
+		return dao.findAll();
 	}
 
 	@Override
 	public Optional<CategoryMediaModel> getCategoryMediaById(Integer objectclassId) {
 		// TODO Auto-generated method stub
-		return dao.findByIdAndStatus(objectclassId,true);
+		//return dao.findByIdAndStatus(objectclassId,true);
+		return dao.findById(objectclassId);
 	}
 
 	@Override

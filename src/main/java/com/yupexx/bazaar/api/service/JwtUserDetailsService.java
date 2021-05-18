@@ -21,6 +21,7 @@ public class JwtUserDetailsService implements UserDetailsService {
 
 	@Override
 	public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
+		System.out.println("username 1:-"+username);
 		UserModel user = userDao.findByEmail(username);
 		if (user == null) {
 			throw new UsernameNotFoundException("User not found with username: " + username);
@@ -33,12 +34,20 @@ public class JwtUserDetailsService implements UserDetailsService {
 		user.setPassword(bcryptEncoder.encode(user.getPassword()));
 		return userDao.save(user);
 	}
+	
+	public UserModel updatePinPassword(UserModel user) {
+		user.setPassword(user.getPassword());
+		return userDao.save(user);
+	}
+	
 	public UserModel saveGoogleUser(UserModel user) {
 		user.setPassword(bcryptEncoder.encode(user.getgId()));
 		return userDao.save(user);
 	}
+	
 	public UserModel saveFBUser(UserModel user) {
 		user.setPassword(bcryptEncoder.encode(user.getFbId()));
 		return userDao.save(user);
 	}
+	
 }

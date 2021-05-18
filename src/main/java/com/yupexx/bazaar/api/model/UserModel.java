@@ -35,12 +35,14 @@ public class UserModel {
 	private String gId="";
 	private String profilePic;
 	private String fullName;
-
 	private String email;
 	private String password;
 	@JsonIgnore
 	private String passCode;
-
+	
+	@Column(nullable = true)
+	private Integer role;
+	
 	private enum gender {
 		male, female
 	};
@@ -57,6 +59,7 @@ public class UserModel {
 	private String state;
 	private String sourceLogin="API";
 	private Integer signupSteps=0;
+	
 	@Column(columnDefinition = "TINYINT")
 	@Type(type = "org.hibernate.type.NumericBooleanType")
 	private Boolean isEmailValid=false;
@@ -66,6 +69,8 @@ public class UserModel {
 	@Column(columnDefinition = "TINYINT")
 	@Type(type = "org.hibernate.type.NumericBooleanType")
 	private Boolean status=false;
+	
+	
 	@JsonIgnore
 	private Long createdBy=(long)1;
 	@JsonIgnore
@@ -79,9 +84,19 @@ public class UserModel {
 	@Column(name="nAds",nullable = true)
 	private Integer nAds;
 	
+	
 	@OneToOne(cascade = CascadeType.ALL)
-	@JoinColumn(name = "roleType", insertable =  false, updatable = false)
+	@JoinColumn(name = "roleType", insertable=false, updatable=false)
     private RoleModel userRole;
+
+	
+	public Integer getRole() {
+		return role;
+	}
+
+	public void setRole(Integer role) {
+		this.role = role;
+	}
 
 	public Long getId() {
 		return id;
@@ -314,6 +329,7 @@ public class UserModel {
 	public void setnAds(Integer nAds) {
 		this.nAds = nAds;
 	}
+
 
 	@Override
 	public String toString() {

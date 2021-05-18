@@ -11,6 +11,7 @@ import org.hibernate.annotations.Type;
 import org.hibernate.annotations.UpdateTimestamp;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
+import com.yupexx.services.api.model.dto.PostLabelMapDto;
 
 public class AdPostUserDTO {
 
@@ -32,6 +33,8 @@ public class AdPostUserDTO {
 	@NotNull(message = "Tag can not be null!")
 	@JsonFormat(with = JsonFormat.Feature.ACCEPT_SINGLE_VALUE_AS_ARRAY)
 	private List<Integer> tagId;
+	private List<PostLabelMapDto> label;
+	
 	private String adTitle;
 	private String adDescription;	
 	private float adPrice;
@@ -51,6 +54,16 @@ public class AdPostUserDTO {
 	private Timestamp createdDate;
 	@UpdateTimestamp
 	private Timestamp updatedDate;
+	
+	
+	
+	
+	public List<PostLabelMapDto> getLabel() {
+		return label;
+	}
+	public void setLabel(List<PostLabelMapDto> label) {
+		this.label = label;
+	}
 	public Integer getId() {
 		return id;
 	}

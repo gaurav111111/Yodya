@@ -26,7 +26,8 @@ public class BlogModel {
 	private String blogName;
 	@Column(columnDefinition = "LONGTEXT")
 	private String blogDescription;
-	@JsonIgnore
+	
+	
 	@Column(columnDefinition = "TINYINT")
 	@Type(type = "org.hibernate.type.NumericBooleanType")
 	private Boolean status=false;

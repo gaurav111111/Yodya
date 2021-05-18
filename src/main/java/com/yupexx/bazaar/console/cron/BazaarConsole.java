@@ -14,7 +14,7 @@ import org.springframework.scheduling.annotation.EnableScheduling;
 import org.springframework.scheduling.annotation.Scheduled;
 
 import com.yupexx.bazaar.api.model.CronModel;
-import com.yupexx.bazaar.api.model.CronModel.EmailType;
+
 import com.yupexx.bazaar.api.service.CronService;
 import com.yupexx.bazaar.api.service.EmailService;
 import com.yupexx.bazaar.api.service.UserService;
@@ -56,47 +56,47 @@ public class BazaarConsole {
 				case "USER_NEW":
 					object.setIsProcessed(1);
 					service.updateCron(object.getId(), object);
-					email.newUserRegisteration(userservice.getUserById(cron.getCreatedBy()));
+				//	email.newUserRegisteration(userservice.getUserById(cron.getCreatedBy()));
 					break;
 				case "USER_FORGOT":
 					object.setIsProcessed(1);
 					service.updateCron(object.getId(), object);
-					email.userForgot(userservice.getUserById(cron.getCreatedBy()));
+				//	email.userForgot(userservice.getUserById(cron.getCreatedBy()));
 					break;
 				case "USER_DELETE":
 					object.setIsProcessed(1);
 					service.updateCron(object.getId(), object);
-					email.userDelete(userservice.getUserById(cron.getCreatedBy()));
+				//	email.userDelete(userservice.getUserById(cron.getCreatedBy()));
 					break;
 				case "USER_PROFILE":
 					object.setIsProcessed(1);
 					service.updateCron(object.getId(), object);
-					email.userProfileUpdate(userservice.getUserById(cron.getCreatedBy()));
+				//	email.userProfileUpdate(userservice.getUserById(cron.getCreatedBy()));
 					break;
 				case "USER_PASS":
 					object.setIsProcessed(1);
 					service.updateCron(object.getId(), object);
-					email.userPassChanged(userservice.getUserById(cron.getCreatedBy()));
+				//	email.userPassChanged(userservice.getUserById(cron.getCreatedBy()));
 					break;
 				case "AD_APPROVED":
 					object.setIsProcessed(1);
 					service.updateCron(object.getId(), object);
-					email.adApproved(userservice.getUserById(cron.getCreatedBy()));
+				//	email.adApproved(userservice.getUserById(cron.getCreatedBy()));
 					break;
 				case "AD_REJECTED":
 					object.setIsProcessed(1);
 					service.updateCron(object.getId(), object);
-					email.adRejected(userservice.getUserById(cron.getCreatedBy()));
+				//	email.adRejected(userservice.getUserById(cron.getCreatedBy()));
 					break;
 				case "VERIFY_EMAIL":
 					object.setIsProcessed(1);
 					service.updateCron(object.getId(), object);
-					email.emailVerify(userservice.getUserById(cron.getCreatedBy()));
+				//	email.emailVerify(userservice.getUserById(cron.getCreatedBy()));
 					break;
 				case "VERIFY_PHONE":
 					object.setIsProcessed(1);
 					service.updateCron(object.getId(), object);
-					email.phoneVerify(userservice.getUserById(cron.getCreatedBy()));
+				//	email.phoneVerify(userservice.getUserById(cron.getCreatedBy()));
 					break;
 				default:
 					LOGGER.info("No Email Type Exists");

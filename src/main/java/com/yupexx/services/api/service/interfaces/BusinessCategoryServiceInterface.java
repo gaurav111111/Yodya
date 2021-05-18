@@ -4,14 +4,16 @@ import java.util.List;
 import java.util.Optional;
 
 import com.yupexx.bazaar.api.model.CategoryModel;
+import com.yupexx.bazaar.api.model.response.Message;
 import com.yupexx.services.api.model.BusinessCategoryModel;
+import com.yupexx.services.api.model.dto.BusinessCatVwDetailsModelDTO;
 import com.yupexx.services.api.model.view.BusinessCategoryVwModel;
 import com.yupexx.services.api.model.view.BusinessCategoryVwParentModel;
 
 
 public interface BusinessCategoryServiceInterface {
 	
-	public List<BusinessCategoryVwParentModel> getCat();
+	public Message getCat();
 	public List<BusinessCategoryModel> getAllCat();
 	public Optional getCatById(Integer catId);
 	public BusinessCategoryModel addCat(BusinessCategoryModel catId);

@@ -6,7 +6,6 @@ import java.util.Optional;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.stereotype.Repository;
-
 import com.yupexx.services.api.model.business.BusinessJoinModel;
 
 
@@ -35,5 +34,6 @@ public interface BusinessJoinRepository extends JpaRepository<BusinessJoinModel,
 	
 	@Query("SELECT e FROM BusinessJoinModel e WHERE e.catId IN (:catId) and e.status=1")
 	List<BusinessJoinModel> findByCatIds(List<Integer> catId);
+	
 
 }

@@ -27,7 +27,8 @@ public class CronService implements CronInterface {
 	@Override
 	public List<CronModel> getCronsByUserId(Long userId) {
 		// TODO Auto-generated method stub
-		return dao.findByStatusAndCreatedByOrderByIdDesc(true,userId);
+	//	return dao.findByStatusAndCreatedByOrderByIdDesc(true,userId);
+		return dao.findByCreatedByOrderByIdDesc(userId);
 	}
 
 

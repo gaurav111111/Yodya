@@ -6,6 +6,7 @@ import java.util.Optional;
 import javax.validation.Valid;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -13,13 +14,20 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.yupexx.bazaar.api.model.CategoryProductTypeModel;
+import com.yupexx.bazaar.api.model.FooterContentModel;
+import com.yupexx.bazaar.api.model.response.Message;
+import com.yupexx.bazaar.api.repository.CategoryProductTypeRepository;
 import com.yupexx.bazaar.api.service.CategoryProductTypeService;
 
 @RestController
+@CrossOrigin
 public class CategoryProductTypeController {
 	
 	@Autowired
 	CategoryProductTypeService service;
+	
+	@Autowired
+	CategoryProductTypeRepository dao;
 
 	@RequestMapping(value = "/bazaar/categoryproducttypes", method = RequestMethod.GET)
 	public List<CategoryProductTypeModel> getCategoryProductTypes() {
@@ -46,9 +54,33 @@ public class CategoryProductTypeController {
 	}
 	
 	@RequestMapping(value = "/bazaar/categoryproducttype/{categoryproducttypeId}", method = RequestMethod.DELETE)
-	public CategoryProductTypeModel deleteCategoryProductType(@Valid @PathVariable Integer categoryproducttypeId) {
+	public Message deleteCategoryProductType(@Valid @PathVariable int id) {
+		
 		System.out.println(this.getClass().getSimpleName() + " - Delete CategoryProductType service is invoked.");
-		return service.deleteCategoryProductType(categoryproducttypeId);
+		Message msg=new Message();
+		CategoryProductTypeModel object = dao.findById(id);
+		if(object!=null) {
+			if(object.getStatus()) {
+				object.setStatus(false);
+				dao.save(object);
+				msg.setCode(200);
+				msg.setMessage("Product Type Inactive Successfully");
+				return msg;
+			}else {
+				object.setStatus(true);
+				dao.save(object);
+				msg.setCode(200);
+				msg.setMessage("Product Type Active Successfully");
+				return msg;
+			}
+		}else {
+			msg.setCode(400);
+			msg.setMessage("Product Type not Found");
+			return msg;
+		}
+		
+		
+		
 	}
 	
 }

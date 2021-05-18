@@ -18,5 +18,7 @@ public interface CategoryServiceInterface {
 	public void deleteCat(Integer userId);
 	Optional<CategoryVwModel> getCatNestedById(Integer catId);
 	List<CategoryAdVwModel> getAdCat();
+	public List<CategoryModel> findCategory(String catName);
+	
 
 }

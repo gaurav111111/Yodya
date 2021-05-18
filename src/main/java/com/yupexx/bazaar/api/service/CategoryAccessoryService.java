@@ -1,5 +1,6 @@
 package com.yupexx.bazaar.api.service;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 
@@ -21,13 +22,32 @@ public class CategoryAccessoryService implements CategoryAccessoryInterface {
 	@Override
 	public List<CategoryAccessoryModel> getAllCategoryAccessorys() {
 		// TODO Auto-generated method stub
-		return dao.findByStatus(true);
+		//return dao.findByStatus(true);
+		return dao.findAll();
 	}
 
 	@Override
+	public List<CategoryAccessoryModel> getAllSubCategoryAccessorys(Integer categoryaccessoryId) {
+		// TODO Auto-generated method stub
+	//	List<CategoryAccessoryModel> catAcc = dao.findByStatus(true);
+		List<CategoryAccessoryModel> catAcc = dao.findAll();
+		List<CategoryAccessoryModel> data = new ArrayList();
+		if(catAcc.size()>0) {
+			for(CategoryAccessoryModel ca:catAcc) {
+				if(categoryaccessoryId==ca.getCatId()) {
+					data.add(ca);
+				}
+			}
+		}
+		
+		return data;
+	}
+	
+	@Override
 	public Optional<CategoryAccessoryModel> getCategoryAccessoryById(Integer objectclassId) {
 		// TODO Auto-generated method stub
-		return dao.findByIdAndStatus(objectclassId,true);
+		//return dao.findByIdAndStatus(objectclassId,true);
+		return dao.findById(objectclassId);
 	}
 
 	@Override
@@ -51,5 +71,7 @@ public class CategoryAccessoryService implements CategoryAccessoryInterface {
 		object.setStatus(false);
 		return dao.save(object);
 	}
+
+	
 
 }

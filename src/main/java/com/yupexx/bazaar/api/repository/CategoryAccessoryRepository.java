@@ -16,4 +16,6 @@ public interface CategoryAccessoryRepository extends JpaRepository<CategoryAcces
 	List<CategoryAccessoryModel> findByStatus(Boolean Status);
 
 	Optional<CategoryAccessoryModel> findByIdAndStatus(Integer blogId, boolean b);
+	
+	CategoryAccessoryModel	findById(int id);
 }

@@ -35,16 +35,16 @@ public class CategoryModel implements Serializable {
 	private String categoryName;
 	@Column(columnDefinition = "TINYINT")
 	@Type(type = "org.hibernate.type.NumericBooleanType")
-	@JsonIgnore
+
 	private Boolean status=false;
-	@JsonIgnore
+	
 	private Long createdBy=(long)1;
-	@JsonIgnore
+	
 	private Long updatedBy=(long)1;
-	@JsonIgnore
+	
 	@CreationTimestamp
 	private Timestamp createdDate;
-	@JsonIgnore
+	
 	@UpdateTimestamp
 	private Timestamp updatedDate;
 	
@@ -124,6 +124,13 @@ public class CategoryModel implements Serializable {
 
 	public void setData(List<CategoryModel> data) {
 		this.data = data;
+	}
+
+	@Override
+	public String toString() {
+		return "CategoryModel [id=" + id + ", parentCatId=" + parentCatId + ", categoryName=" + categoryName
+				+ ", status=" + status + ", createdBy=" + createdBy + ", updatedBy=" + updatedBy + ", createdDate="
+				+ createdDate + ", updatedDate=" + updatedDate + ", data=" + data + "]";
 	}	
 	
 	

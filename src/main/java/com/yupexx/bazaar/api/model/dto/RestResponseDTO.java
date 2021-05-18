@@ -9,8 +9,6 @@ public class RestResponseDTO<T> {
     private String message = null;
 
     private T data;
-   
-    
 	public String getStatus() {
 		return status;
 	}

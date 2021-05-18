@@ -12,4 +12,5 @@ public interface CategoryAccessoryInterface {
 	CategoryAccessoryModel addNewCategoryAccessory(CategoryAccessoryModel object);
 	CategoryAccessoryModel updateCategoryAccessory(Integer blogId,CategoryAccessoryModel object);
 	CategoryAccessoryModel deleteCategoryAccessory(Integer blogId);
+	List<CategoryAccessoryModel> getAllSubCategoryAccessorys(Integer blogId);
 }

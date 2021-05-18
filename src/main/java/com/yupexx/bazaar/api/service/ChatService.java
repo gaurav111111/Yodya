@@ -40,13 +40,15 @@ public class ChatService implements ChatInterface {
 	@Override
 	public Optional<ChatModel> getChatById(Integer id) {
 		// TODO Auto-generated method stub
-		return dao.findByIdAndStatus(id,true);
+	//	return dao.findByIdAndStatus(id,true);
+		return dao.findById(id);
 	}
 	
 	@Override
 	public List<ChatModel> getChatByChatId(Long chatId) {
 		// TODO Auto-generated method stub
-		return dao.findByChatIdAndStatus(chatId,true);
+		//return dao.findByChatIdAndStatus(chatId,true);
+		return dao.findByChatId(chatId);
 	}
 
 	@Override

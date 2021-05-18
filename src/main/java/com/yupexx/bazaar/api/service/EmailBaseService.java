@@ -34,7 +34,6 @@ public class EmailBaseService {
 		helper.setTo(to);
 		helper.setSubject(Subject);
 		helper.setText(body,true); // HTML
-
         javaMailSender.send(msg);
 
     }

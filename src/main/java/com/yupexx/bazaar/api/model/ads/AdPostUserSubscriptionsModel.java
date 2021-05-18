@@ -157,5 +157,16 @@ public class AdPostUserSubscriptionsModel {
 	public void setPaymentPaid(Boolean paymentPaid) {
 		this.paymentPaid = paymentPaid;
 	}
+
+	@Override
+	public String toString() {
+		return "AdPostUserSubscriptionsModel [id=" + id + ", adSubscriptionId=" + adSubscriptionId + ", userMasterId="
+				+ userMasterId + ", adId=" + adId + ", adSubscriptionPrice=" + adSubscriptionPrice + ", expiryDate="
+				+ expiryDate + ", status=" + status + ", paymentPaid=" + paymentPaid + ", createdBy=" + createdBy
+				+ ", updatedBy=" + updatedBy + ", createdDate=" + createdDate + ", updatedDate=" + updatedDate
+				+ ", deal=" + deal + "]";
+	}
+	
+	
 	
 }

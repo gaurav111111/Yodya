@@ -15,4 +15,6 @@ public interface CategoryTagsRepository extends JpaRepository<CategoryTagsModel,
 	List<CategoryTagsModel> findByStatus(Boolean Status);
 
 	Optional<CategoryTagsModel> findByIdAndStatus(Integer blogId, boolean b);
+	
+	CategoryTagsModel findById(int id);
 }

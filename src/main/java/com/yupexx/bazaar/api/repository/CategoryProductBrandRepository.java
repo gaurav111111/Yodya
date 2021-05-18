@@ -15,4 +15,5 @@ public interface CategoryProductBrandRepository extends JpaRepository<CategoryPr
 	List<CategoryProductBrandModel> findByStatus(Boolean Status);
 
 	Optional<CategoryProductBrandModel> findByIdAndStatus(Integer blogId, boolean b);
+	CategoryProductBrandModel findById(int id);
 }

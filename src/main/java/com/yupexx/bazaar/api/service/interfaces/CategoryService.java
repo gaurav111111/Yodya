@@ -70,4 +70,11 @@ public class CategoryService implements CategoryServiceInterface {
 		dao.deleteById(catId);
 	}
 
+	@Override
+	public List<CategoryModel> findCategory(String catName) {
+		// TODO Auto-generated method stub
+		return dao.findBycategoryName(catName);
+	
+	}
+
 }

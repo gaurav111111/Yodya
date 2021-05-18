@@ -36,23 +36,38 @@ public class BusinessCategoryModel implements Serializable {
 	private String categoryName;
 	@Column(columnDefinition = "TINYINT")
 	@Type(type = "org.hibernate.type.NumericBooleanType")
-	@JsonIgnore
+	
 	private Boolean status=false;
-	@JsonIgnore
+
 	private Long createdBy=(long)1;
-	@JsonIgnore
+	
 	private Long updatedBy=(long)1;
-	@JsonIgnore
+	
 	@CreationTimestamp
 	private Timestamp createdDate;
-	@JsonIgnore
+	
 	@UpdateTimestamp
 	private Timestamp updatedDate;
 	
+	private String image;
+	
+	
+	public String getImage() {
+		return image;
+	}
+
+	public void setImage(String image) {
+		this.image = image;
+	}
+
 	@OneToMany(cascade=CascadeType.ALL)
 	@JoinColumn(name="parentCatId",referencedColumnName="id")
 	@Where(clause = "parentCatId is not null")
 	private List<BusinessCategoryModel> data;
+	
+	
+	
+	
 
 
 	public static long getSerialversionuid() {

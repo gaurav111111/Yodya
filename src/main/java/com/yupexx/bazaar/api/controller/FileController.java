@@ -24,6 +24,7 @@ import com.yupexx.bazaar.api.service.FileStorageService;
 import com.yupexx.bazaar.api.service.UserService;
 
 @RestController
+@CrossOrigin
 public class FileController {
 	private static final Logger logger = LoggerFactory.getLogger(FileController.class);
 
@@ -94,7 +95,6 @@ public class FileController {
         if(contentType == null) {
             contentType = "application/octet-stream";
         }
-
         return ResponseEntity.ok()
                 .contentType(MediaType.parseMediaType(contentType))
                 .header(HttpHeaders.CONTENT_DISPOSITION, "attachment; filename=\"" + resource.getFilename() + "\"")

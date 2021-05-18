@@ -24,7 +24,7 @@ public class CategoryAccessoryModel {
 	private Integer id;
 	private Integer catId;
 	private String accessoryName;
-	@JsonIgnore
+	
 	@Column(columnDefinition = "TINYINT")
 	@Type(type = "org.hibernate.type.NumericBooleanType")
 	private Boolean status=false;

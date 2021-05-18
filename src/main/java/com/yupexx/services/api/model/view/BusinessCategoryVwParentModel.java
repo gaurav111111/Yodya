@@ -32,16 +32,16 @@ public class BusinessCategoryVwParentModel {
 
 	@Column(columnDefinition = "TINYINT")
 	@Type(type = "org.hibernate.type.NumericBooleanType")
-	@JsonIgnore
+
 	private Boolean status;
-	@JsonIgnore
+
 	private Long createdBy;
-	@JsonIgnore
+
 	private Long updatedBy;
-	@JsonIgnore
+
 	@CreationTimestamp
 	private Timestamp createdDate;
-	@JsonIgnore
+
 	@UpdateTimestamp
 	private Timestamp updatedDate;
 
@@ -50,6 +50,8 @@ public class BusinessCategoryVwParentModel {
 	@Where(clause = "parentCatId is not null")
 	private List<BusinessCategoryModel> data;
 
+	
+	
 	public Integer getId() {
 		return id;
 	}

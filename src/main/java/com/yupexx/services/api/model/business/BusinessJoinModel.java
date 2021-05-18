@@ -23,6 +23,7 @@ import com.yupexx.bazaar.api.model.UserModel;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.yupexx.services.api.model.BusinessCategoryModel;
+import com.yupexx.services.api.model.BusinessDetailMapping;
 
 @Entity
 @Table(name = "business_master")
@@ -78,9 +79,13 @@ public class BusinessJoinModel {
 	@JoinColumn(name="catId",referencedColumnName="id",insertable =  false, updatable = false)
 	private BusinessCategoryModel category;
 
+	@JsonIgnore
 	@OneToMany(cascade=CascadeType.ALL)
 	@JoinColumn(name="businessId",referencedColumnName="id",insertable =  false, updatable = false)
 	private List<BusinessFacilityModel> facility;
+	
+
+	
 
 	@OneToMany(cascade=CascadeType.ALL)
 	@JoinColumn(name="businessId",referencedColumnName="id",insertable =  false, updatable = false)
@@ -97,6 +102,8 @@ public class BusinessJoinModel {
 	@OneToMany(cascade=CascadeType.ALL)
 	@JoinColumn(name="businessId",referencedColumnName="id",insertable =  false, updatable = false)
 	private List<BusinessAnalyticsModel> analytics;
+
+	
 
 	public Integer getId() {
 		return id;

@@ -14,7 +14,7 @@ public class AdPostMediaModel {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Integer id;
-	@JsonIgnore
+	
 	private Integer adId;
 	private String url;
 	public Integer getId() {

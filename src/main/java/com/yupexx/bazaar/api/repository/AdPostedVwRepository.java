@@ -23,14 +23,35 @@ public interface AdPostedVwRepository extends JpaRepository<AdPostUserJoinModel,
 	List<AdPostUserJoinModel> findByStatusAndAdTitleContainingOrAdDescriptionContainingOrderByUpdatedDateDesc(boolean b,String t,String d);
 	
 	List<AdPostUserJoinModel> findByCreatedByAndStatusOrderByUpdatedDateDesc(Long createdBy,Boolean b);
+	//List<AdPostUserJoinModel> findByCreatedByAndStatusOrderByUpdatedDateDesc(Long createdBy);
 
 	List<AdPostUserJoinModel> findTop12ByStatusOrderByUpdatedDateDesc(boolean b);
+	//List<AdPostUserJoinModel> findTop12ByStatusOrderByUpdatedDateDesc();
 	
 	List<AdPostUserJoinModel> findTop12ByAdPriceGreaterThanAndStatusOrderByUpdatedDateDesc(float price,boolean b);
-
+//	List<AdPostUserJoinModel> findTop12ByAdPriceGreaterThanAndStatusOrderByUpdatedDateDesc(float price);
 	List<AdPostUserJoinModel> findByStatusAndCatIdOrderByUpdatedDateDesc(boolean b, Integer catId);
 	
 	@Query("SELECT e FROM AdPostUserJoinModel e WHERE e.catId IN (:catId) and e.status=1")
 	List<AdPostUserJoinModel> findByCatIds(List<Integer> catId);
+
+	//List<AdPostUserJoinModel> findTop12OrderByUpdatedDateDesc();
+
+	//List<AdPostUserJoinModel> findTop12ByAdPriceGreaterThanAndOrderByUpdatedDateDesc(int i);
+
+	//List<AdPostUserJoinModel> findByCreatedByAndOrderByUpdatedDateDesc(Long sellerId);
+	
+	List<AdPostUserJoinModel> findByCreatedByOrderByUpdatedDateDesc(Long sellerId);
+
+	List<AdPostUserJoinModel> findTop12ByAdPriceGreaterThanOrderByUpdatedDateDesc(float i);
+
+	List<AdPostUserJoinModel> findByCatIdAndIdNotOrderByUpdatedDateDesc(Integer catId, Integer adId);
+
+	List<AdPostUserJoinModel> findByLocationContainingOrderByUpdatedDateDesc(String location);
+
+	List<AdPostUserJoinModel> findByAdTitleContainingOrAdDescriptionContainingOrderByUpdatedDateDesc(String key,
+			String key2);
+
+	
 
 }

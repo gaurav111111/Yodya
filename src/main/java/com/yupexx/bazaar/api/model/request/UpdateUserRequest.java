@@ -3,8 +3,8 @@ package com.yupexx.bazaar.api.model.request;
 import org.springframework.beans.factory.annotation.Value;
 
 public class UpdateUserRequest {
-
-
+	private long id =0;
+	private Boolean status= true;
 	private String profilePic="-";
 	private String fullName="-";
 	private String email="-";
@@ -19,6 +19,52 @@ public class UpdateUserRequest {
 	private String city;
 	private String state;
 	private Integer signupSteps;
+	private String fbId="-";
+	private String gId="-";
+	private String roleType="-";
+
+	
+	public String getRoleType() {
+		return roleType;
+	}
+
+	public void setRoleType(String roleType) {
+		this.roleType = roleType;
+	}
+
+	public long getId() {
+		return id;
+	}
+
+	public void setId(long id) {
+		this.id = id;
+	}
+
+
+
+	public Boolean getStatus() {
+		return status;
+	}
+
+	public void setStatus(Boolean status) {
+		this.status = status;
+	}
+
+	public String getFbId() {
+		return fbId;
+	}
+
+	public void setFbId(String fbId) {
+		this.fbId = fbId;
+	}
+
+	public String getgId() {
+		return gId;
+	}
+
+	public void setgId(String gId) {
+		this.gId = gId;
+	}
 
 	public String getProfilePic() {
 		return profilePic;
@@ -130,6 +176,15 @@ public class UpdateUserRequest {
 
 	public void setSignupSteps(Integer signupSteps) {
 		this.signupSteps = signupSteps;
+	}
+
+	@Override
+	public String toString() {
+		return "UpdateUserRequest [profilePic=" + profilePic + ", fullName=" + fullName + ", email=" + email
+				+ ", gender=" + gender + ", dob=" + dob + ", countryCode=" + countryCode + ", phoneNumber="
+				+ phoneNumber + ", address1=" + address1 + ", address2=" + address2 + ", zipCode=" + zipCode
+				+ ", country=" + country + ", city=" + city + ", state=" + state + ", signupSteps=" + signupSteps
+				+ ", fbId=" + fbId + ", gId=" + gId + "]";
 	}
 
 }

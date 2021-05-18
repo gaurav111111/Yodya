@@ -16,5 +16,7 @@ public interface BusinessReviewJoinRepository extends JpaRepository<BusinessRevi
 	List<BusinessReviewJoinModel> findByCreatedBy(Long userId);
 	
 	List<BusinessReviewJoinModel> findTop2ByStatusOrderByUpdatedDateDesc(boolean status);
+
+	List<BusinessReviewJoinModel> findByBusinessId(Integer id);
 	
 }

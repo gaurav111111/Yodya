@@ -28,15 +28,15 @@ public class BusinessUserWishListModel {
 	private Integer Id;
 	private Integer businessId;
 	private Long userMasterId;
-	@JsonIgnore
+	
 	@Column(columnDefinition = "TINYINT")
 	@Type(type = "org.hibernate.type.NumericBooleanType")
 	private Boolean status=false;
-	@JsonIgnore
+	
 	private Long createdBy=(long)1;
-	@JsonIgnore
+	
 	private Long updatedBy=(long)1;
-	@JsonIgnore
+	
 	@CreationTimestamp
 	private Timestamp createdDate;
 	@UpdateTimestamp

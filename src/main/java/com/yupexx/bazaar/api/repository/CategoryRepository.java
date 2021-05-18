@@ -11,4 +11,7 @@ import com.yupexx.bazaar.api.model.CategoryModel;
 
 @Repository
 public interface CategoryRepository extends JpaRepository<CategoryModel, Integer>{
+
+	List<CategoryModel> findBycategoryName(String catName);
+	
 }

@@ -8,4 +8,6 @@ import com.yupexx.services.api.model.BusinessCategoryModel;
 @Repository
 public interface BusinessCategoryRepository extends JpaRepository<BusinessCategoryModel, Integer> {
 
+	
+	
 }
